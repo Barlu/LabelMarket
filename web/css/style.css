@@ -1,0 +1,221 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 26/09/2014, 5:04:56 PM
+    Author     : emmett.newman
+*/
+@media screen {
+    /*---------------------------------------------GENERAL*/
+    #wrapper {
+        max-width: 980px;
+        margin: auto;
+    }
+    
+    h1, h2, h3, h4 {
+        font-family: 'Ubuntu', sans-serif;
+    }
+    
+    p, a {
+        font-family: 'Roboto', sans-serif;
+    }
+    
+    a {
+        text-decoration: none;
+        color: black;
+    }
+    
+    a:visited {
+        color: black;
+    }
+
+    .clear {
+        clear: both;
+    }
+    
+    .contentWrap {
+        padding: 40px;
+    }
+    /*---------------------------------------------LAYOUT*/
+    /*----------------------------------------GENERAL*/
+    
+    #labelHeading {
+        display: inline-block;
+        font-size: 4em;
+    }
+    
+    h2 {
+        font-size: 2.5em;
+    }
+    
+    .logoWrap {
+        height: 200px;
+        width: 200px;
+        display: inline-block;
+        
+    }
+    .logoWrap img {
+        max-width: 150px;
+        position: relative;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+    
+    .header {
+        background-image: url('../images/coverImage.jpg');
+    }
+    /*----------------------------------------NAVIGATION*/
+
+    #navBackground {
+        background-color: #2a2c2b;
+        height: 56px;
+        border-bottom: 3px solid #374140;
+        border-top: 3px solid #374140;
+        text-align: center;
+    }
+
+    #nav {
+        height: 60px;
+        padding:0;
+        margin:auto;
+        list-style: none;
+        position: relative;
+        display: inline-block;
+
+    }
+
+    #nav li {
+        float:left;
+        list-style: none; 
+        background-color: #2a2c2b;
+
+
+    }
+
+    #nav li a {
+        display:block;
+        padding-top: 15px;
+        padding-bottom: 15px;
+        padding-left: 15px;
+        padding-right: 15px;
+        color:#FFF;
+        font-size:22px;
+        text-decoration: none;
+        font-family: 'Ubuntu', sans-serif;
+        text-align: center;
+        width: 100px;
+    }
+
+    #nav li ul li a {
+        display:block;
+        padding: 15px 10px 15px 10px;
+        color:#FFF;
+        font-size:14px;
+        text-decoration: none;
+        font-family: 'Ubuntu', sans-serif;
+        text-align: center;
+        width: 110px;
+        border-bottom: 3px solid #374140;
+
+    }
+
+    li a:hover { background-color: #d9cb9e;  }
+
+
+    /* Change this in order to change the Dropdown symbol 
+    li > a:after { content: ''; } 
+    li > a:only-child:after { content: ''; }  */	
+
+
+    /* The Dropdown Styles */
+    /* =================== */
+
+    /* Hide Dropdowns by Default */
+    #nav ul {
+        display: none;
+        position: absolute; 
+    }
+
+    /* Display Dropdowns on Hover */
+    #nav li:hover > ul {
+        display:block;
+
+    }
+
+
+    /* Fisrt Tier Dropdown */
+    #nav ul li {
+        width:auto;
+        float:none;
+        position: relative;
+        border-bottom:none;
+        background-color: black;
+        left: -40px;
+        top: 3px;
+    }
+
+    /*---------------------------------------------MASTER/DETAIL*/
+    div.master {
+        text-align: center;
+        padding: 50px;
+    }
+    
+    div.master h3, div.master h4, div.master h5 {
+        background-color: white;
+    }
+
+    
+    /*--------------------------------LABEL*/
+    .labelMaster {
+        width: 200px;
+        max-height: 200px;
+        display: inline-block;
+    }
+    /*--------------------------------ALBUM*/
+    .albumMaster {
+        width: 150px;
+        float: left;
+        display: inline-block;
+        text-align: center;
+    }
+
+    .albumMaster img {
+        max-width: 140px;
+        max-height: 100px;
+    }
+    
+    /*--------------------------------SONG*/
+    .songMaster {
+        width: 80%;
+        margin: auto;
+  
+        
+    }
+
+    /*--------------------------------MIX*/
+}
+
+/*---------------------------------------------FORMS*/
+legend {
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 2em;
+    padding: 10px;
+    text-align: left;
+}
+form {
+    
+}
+
+form input, form label, form select, form textarea {
+    margin: 10px;
+}
+fieldset {
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+}
+@media print {
+
+}
