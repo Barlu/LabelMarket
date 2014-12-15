@@ -8,7 +8,7 @@ $commentDao = new CommentDao();
 $comments = [];
 
 if(array_key_exists('submit', $_POST) && array_key_exists('comment', $_POST)){
-    $sender = null;   
+    $senderId = null;   
     if(array_key_exists('username', $_SESSION)){
         $userDao = new UserDao();
         $user = $userDao->findByUsername($_SESSION['username']);

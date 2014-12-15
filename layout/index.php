@@ -23,7 +23,7 @@ if(array_key_exists('username', $_SESSION)){
     $admin = $adminDao->findByUsername($_SESSION['username']);
 }
 
-$genreArr = ['Breaks', 'Chill Out', 'Deep House', 'Drum & Bass', "Dubstep", 'Electro House', 'Electronica', 'Funk/R&B', 'Glitch Hop', 'Hard Dance', 'Hardcore/Hard Techno', 'Hip-hop', 'House', 'Indie Dance/Nu Disco', 'Minimal', 'Pop/Rock', 'Progressive House', 'Psy-Trance', 'Reggae/Dub', 'Tech House', 'Techno', 'Trance'];
+$genreArr = ['Please select...', 'Breaks', 'Chill Out', 'Deep House', 'Drum & Bass', "Dubstep", 'Electro House', 'Electronica', 'Funk/R&B', 'Glitch Hop', 'Hard Dance', 'Hardcore/Hard Techno', 'Hip-hop', 'House', 'Indie Dance/Nu Disco', 'Minimal', 'Pop/Rock', 'Progressive House', 'Psy-Trance', 'Reggae/Dub', 'Tech House', 'Techno', 'Trance'];
 
 $countryList = array(
 	"AF" => "Afghanistan",

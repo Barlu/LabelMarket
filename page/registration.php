@@ -23,25 +23,25 @@ $label->setName('');
 if (array_key_exists('submit', $_POST)) {
 
     $adminData = [
-        'username' => escape($_POST['username']),
+        'username' => Utils::escape($_POST['username']),
         'password' => Utils::cryptPassword($_POST['password'])
     ];
 
     $contactData = [
-        'firstName' => escape($_POST['firstName']),
-        'lastName' => escape($_POST['lastName']),
-        'email' => escape($_POST['email']),
-        'portrait' => escape($_POST['portrait'])
+        'firstName' => Utils::escape($_POST['firstName']),
+        'lastName' => Utils::escape($_POST['lastName']),
+        'email' => Utils::escape($_POST['email']),
+        'portrait' => Utils::escape($_POST['portrait'])
     ];
 
     $labelData = [
-        'name' => escape($_POST['labelName']),
-        'email' => escape($_POST['labelEmail']),
-        'country' => escape($_POST['country']),
-        'logo' => escape($_POST['logo']),
-        'cover' => escape($_POST['cover']),
-        'genre' => escape($_POST['genre']),
-        'description' => escape($_POST['description'])
+        'name' => Utils::escape($_POST['labelName']),
+        'email' => Utils::escape($_POST['labelEmail']),
+        'country' => Utils::escape($_POST['country']),
+        'logo' => Utils::escape($_POST['logo']),
+        'cover' => Utils::escape($_POST['cover']),
+        'genre' => Utils::escape($_POST['genre']),
+        'description' => Utils::escape($_POST['description'])
     ];
 
     Mapper::mapUser($admin, $adminData);
@@ -49,7 +49,7 @@ if (array_key_exists('submit', $_POST)) {
     Mapper::mapLabel($label, $labelData);
 
     if (Validator::checkUsername($admin->getUsername())) {
-        if (escape($_POST['password']) === escape($_POST['passwordRepeat']) && strlen(trim($_POST['passwordRepeat'])) > 5) {
+        if (Utils::escape($_POST['password']) === Utils::escape($_POST['passwordRepeat']) && strlen(trim($_POST['passwordRepeat'])) > 5) {
             $labelDao = new LabelDao();
             $savedLabel = $labelDao->save($label);
             $adminDao = new AdminDao();

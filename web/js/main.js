@@ -10,20 +10,55 @@ function getEle(id) {
 
 //-----------------------------------------------VALIDATION
 
+function validateRegistration(){
+    var errors = 0;
+    
+    if(!checkEmpty('username')){
+        errors++;
+    }
+    if(!checkEmpty('password')){
+        errors++;
+    }
+    if(!checkEmpty('passwordRepeat')){
+        errors++;
+    }
+    if(!checkEmpty('labelName')){
+        errors++;
+    }
+    if(!dropdownIsValid('genre')){
+        errors++;
+    }
+    if(!dropdownIsValid('country')){
+        errors++;
+    }
+    if(errors !== 0){
+        return false;
+    }
+    return true;
+}
+
 function dropdownIsValid(id) {
     var selectedIndex = getEle(id).selectedIndex;
+    var errorId = getEle(id + 'Error');
     if (selectedIndex !== 0) {
+        errorId.innerHTML = '';
         return true;
     }
+    errorId.innerHTML = '<p class="error"> * This field is required</p>';
     return false;
 }
 
 function checkEmpty(id) {
     var input = getEle(id).value;
+    console.log(input);
+    var errorId = getEle(id + 'Error');
     input = input.replace(/ /g, "");
+    console.log(input);
     if (input.length !== 0) {
+        errorId.innerHTML = '';
         return true;
     }
+    errorId.innerHTML = '<p class="error"> * This field is required</p>';
     return false;
 }
 

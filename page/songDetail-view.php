@@ -12,13 +12,14 @@
     }
     ?>
     <p><?php echo $song->getDescription(); ?></p>
-    <div>
+    <div class='commentWrap'>
+        <h3>Comments</h3>
         <?php
         if ($comments) {
             foreach ($comments as $comment) {
                 echo '<div class="comment">
                 <p>' . $comment->getComment() . '</p>
-               <div>
+               </div>
         ';
             }
         } else {

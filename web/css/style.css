@@ -67,6 +67,18 @@ and open the template in the editor.
     .header {
         background-image: url('../images/coverImage.jpg');
     }
+    /*----------------------------------------COMMENTS*/
+    
+    .commentWrap{
+        padding: 80px;
+    }
+    
+    .comment {
+        border-style: solid;
+        border-width: 1px;
+        border-radius: 5px;
+        padding: 10px;
+    }
     /*----------------------------------------NAVIGATION*/
 
     #navBackground {
