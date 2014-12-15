@@ -17,7 +17,7 @@ class Comment {
     private $senderId;
     private $receiverId;
     private $comment;
-    private $dateTime;
+    private $uploadDate;
     
     public function getId() {
         return $this->id;
@@ -35,8 +35,8 @@ class Comment {
         return $this->comment;
     }
 
-    public function getDateTime() {
-        return $this->dateTime;
+    public function getUploadDate() {
+        return $this->uploadDate;
     }
 
     public function setId($id) {
@@ -44,7 +44,7 @@ class Comment {
     }
 
     public function setSenderId($senderId) {
-        $this->senderId = $senderId;
+        $this->senderId = (int) $senderId;
     }
 
     public function setReceiverId($receiverId) {
@@ -55,8 +55,8 @@ class Comment {
         $this->comment = $comment;
     }
 
-    public function setDateTime($dateTime) {
-        $this->dateTime = $dateTime;
+    public function setUploadDate($uploadDate) {
+        $this->uploadDate = $uploadDate;
     }
 
 

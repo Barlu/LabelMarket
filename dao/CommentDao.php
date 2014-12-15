@@ -16,11 +16,11 @@ class CommentDao extends Dao {
     public function insert(Comment $comment) {
         $now = new DateTime;
         $comment->setId(null);
-        $comment->setDateTime($now->getTimestamp());
+        $comment->setUploadDate($now->getTimestamp());
         $sql = 'INSERT INTO comment
                 VALUES(:id, :senderId, :receiverId, :comment, :dateTime);';
         
-        return $this->execute($sql, $object);
+        return $this->execute($sql, $comment);
     }
 
     public function update(Comment $comment){
@@ -45,7 +45,7 @@ class CommentDao extends Dao {
             ':senderId' => $comment->getSenderId(),
             ':receiverId' => $comment->getReceiverId(),
             ':comment' => $comment->getComment(),
-            ':dateTime' => $comment->getDateTime(),
+            ':dateTime' => $comment->getUploadDate(),
         ];
         
         return $params;
@@ -64,7 +64,7 @@ class CommentDao extends Dao {
         return $comment;
     }
     
-    public function findAll($receiverId, $sortBy) {
+    public function findAllByReceiverId($receiverId, $sortBy) {
         $sql = Dao::compileSearchQuery('comment', $sortBy, 'receiverId');
         $statement = $this->getDb()->prepare($sql);
         if(!strpos($sql, 'LIKE')){
@@ -75,15 +75,15 @@ class CommentDao extends Dao {
             ':sortBy' => '%'.$sortBy.'%'));
         }
         $results = $statement->fetchAll();
-        $albums = [];
-        foreach($results as $row){
-            $album = new Album();
-            $albums[] = Mapper::mapAlbum($album, $row);
-        }
-        if (!$albums) {
+        if (!$results) {
             return null;
         }
-        return $albums;
+        $comments = [];
+        foreach($results as $row){
+            $comment = new Comment();
+            $comments[] = Mapper::mapComment($comment, $row);
+        }
+        return $comments;
     }
     
     public function delete($id) {

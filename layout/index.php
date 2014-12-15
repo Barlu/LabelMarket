@@ -4,6 +4,7 @@ $cover =  'http://www.limitlessproductionsent.net/lp-wp/wp-content/uploads/2012/
 $logo = 'images/logo.jpg';
 $labelName = 'Label Market';
 $labelId;
+$adminDao = new AdminDao();
 
 if (array_key_exists('labelId', $_SESSION) || array_key_exists('labelId', $_GET)) {
     if (array_key_exists('labelId', $_SESSION)) {
@@ -16,6 +17,10 @@ if (array_key_exists('labelId', $_SESSION) || array_key_exists('labelId', $_GET)
     //$cover = $label->getCover();
     $logo = $label->getLogo();
     $labelName = $label->getName();
+}
+
+if(array_key_exists('username', $_SESSION)){
+    $admin = $adminDao->findByUsername($_SESSION['username']);
 }
 
 $genreArr = ['Breaks', 'Chill Out', 'Deep House', 'Drum & Bass', "Dubstep", 'Electro House', 'Electronica', 'Funk/R&B', 'Glitch Hop', 'Hard Dance', 'Hardcore/Hard Techno', 'Hip-hop', 'House', 'Indie Dance/Nu Disco', 'Minimal', 'Pop/Rock', 'Progressive House', 'Psy-Trance', 'Reggae/Dub', 'Tech House', 'Techno', 'Trance'];

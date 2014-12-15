@@ -208,8 +208,8 @@ class Mapper {
             $comment->setComment($params['comment']);
         }
         
-        if(array_key_exists('dateTime', $params)){
-            $comment->setDateTime($params['dateTime']);
+        if(array_key_exists('uploadDate', $params)){
+            $comment->setUploadDate($params['uploadDate']);
         }
         
         return $comment;

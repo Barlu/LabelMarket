@@ -34,15 +34,14 @@
                     <?php
                     if (array_key_exists('labelId', $_SESSION)) {
                         echo '
-                        <li ><a href="index.php?page=labelHome">Home</a></li>
+                        <li ><a href="index.php">Home</a></li>
                         <li ><a href="index.php?page=labelMaster">Music</a>
                         <ul>
                             <li ><a href="index.php?page=albumMaster">Albums</a></li>
                             <li ><a href="index.php?page=songMaster">Songs</a></li>
                             <li ><a href="index.php?page=mixMaster">Mixes</a></li>
                         </ul>
-                        </li>
-                        <li ><a href="index.php?page=contact">Contact</a></li>';
+                        </li>';
                         
                         if (array_key_exists('username', $_SESSION)) {
                             echo '  <li ><a href="#">Upload</a>
@@ -53,6 +52,7 @@
                                     </li>
                                     <li ><a href="index.php?page=profile">'.ucfirst($_SESSION['username']).'</a>
                                     <ul>
+                                    <li ><a href="index.php?page=labelHome">Label Home</a></li>
                                     <li ><a href="index.php?page=profile">Profile</a></li>
                                     <li ><a href="index.php?page=logOut">Log Out</a></li>
                                     </ul>
@@ -64,11 +64,17 @@
                     } else {
                         echo '
                         <li ><a href="index.php">Home</a></li>
-                        <li ><a href="index.php?page=labelMaster">Browse</a></li>
-                        <li ><a href="index.php?page=contact">Contact</a></li>';
+                        <li ><a href="index.php?page=labelMaster">Browse</a></li>';
                         if (array_key_exists('username', $_SESSION)) {
-                            echo '  <li ><a href="index.php?page=profile">'.ucfirst($_SESSION['username']).'</a>
+                            echo '  <li ><a href="#">Upload</a>
                                     <ul>
+                                        <li ><a href="index.php?page=addEditAlbum&labelId='.$admin->getLabelId().'">Album</a></li>
+                                        <li ><a href="index.php?page=addEditMix&labelId='.$admin->getLabelId().'">Mix</a></li>
+                                    </ul>
+                                    </li>
+                                    <li ><a href="index.php?page=profile">'.ucfirst($_SESSION['username']).'</a>
+                                    <ul>
+                                    <li ><a href="index.php?page=labelHome&labelId='.$admin->getLabelId().'">Label Home</a></li>
                                     <li ><a href="index.php?page=profile">Profile</a></li>
                                     <li ><a href="index.php?page=logOut">Log Out</a></li>
                                     <ul>
@@ -82,6 +88,7 @@
                     ?>
                 </ul>
             </div>
+            
             <div class='contentWrap'>
                 <?php
                 require $template

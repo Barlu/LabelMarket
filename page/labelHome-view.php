@@ -2,7 +2,6 @@
 if($mix){
     ?>
 <div>
-    <a href="index.php?page=mixMaster&sortBy=mostRecent"><h2>Recent Mixes</h2></a>
     <div class="mixMaster">
         <a href="index.php?page=mixDetail&mixId=<?php echo $mix->getId() ?>"><h3><?php echo $mix->getName() ?></h3></a>
         <h4><?php echo $mix->getArtist() ?></h4>
@@ -15,7 +14,6 @@ if($mix){
 }
 if($albums){?>
 <div>
-    <a href="index.php?page=albumMaster&sortBy=mostRecent"><h2>Recent Albums</h2></a>
     <?php
     if (count($albums !== 0)) {
         for ($i = 0; $i < 3 && $i < count($albums); $i++) {

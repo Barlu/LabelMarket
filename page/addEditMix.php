@@ -3,7 +3,9 @@
 $mixDao = new MixDao();
 $mix = new Mix();
 $mixId = '';
-
+if (array_key_exists('labelId', $_GET)) {
+    $_SESSION['labelId'] = $_GET['labelId'];
+}
 if (array_key_exists('mixId', $_GET)) {
     $mix = $mixDao->findById($_GET['mixId']);
     $mixId = '&mixId='.$_GET['mixId'];
