@@ -1,11 +1,13 @@
 
-<div>
+<div class="master">
     <?php
     foreach ($mixes as $mix) {
         echo
         '<div class="mixMaster">
-            <a href="index.php?page=mixDetail&mixId='.$mix->getId().'"><h3>' . $mix->getName() . '</h3></a>
-            <h3>' . $mix->getArtist() . '</h3>
+            <div class="mixLinks">
+            <a href="index.php?page=mixDetail&mixId='.$mix->getId().'"><h4>' . $mix->getName() . '</h4></a>
+            <h5>' . $mix->getArtist() . '</h5>
+            </div>
             ' . Utils::createMixcloudLinkMaster($mix->getLink()) . '
         </div>';
     }

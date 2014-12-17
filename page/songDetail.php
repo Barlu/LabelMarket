@@ -27,6 +27,16 @@ if(array_key_exists('songId', $_GET)){
     $song = $songDao->findById($_GET['songId']);
     $album = $albumDao->findById($song->getAlbumId());
     $comments = $commentDao->findAllByReceiverId($_GET['songId'], 'mostRecent');
+    if ($comments) {
+        $userDao = new UserDao();
+        $contactDao = new ContactDao();
+        $contacts = [];
+        $users = [];
+        foreach ($comments as $comment) {
+            $contacts[] = $contactDao->findByUserId($comment->getSenderId());
+            $users[] = $userDao->findById($comment->getSenderId());
+        }
+    }
 }else{
     header('Location: index.php?page=songMaster');
 }

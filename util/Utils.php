@@ -34,6 +34,13 @@ class Utils {
             return $_GET[$name];
         }
     }
+    
+    public static function convertTimestamp($timestamp){
+        $date = new DateTime();
+        $date->setTimestamp($timestamp);
+        $result = Dao::formatDateTime($date);
+        return $result;
+    }
 
     public static function createSoundcloudLinkMaster($id) {
         $link = '<iframe width="100%" height="65" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/' . $id . '&amp;color=ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=false&amp;show_user=false&amp;show_reposts=false"></iframe>';

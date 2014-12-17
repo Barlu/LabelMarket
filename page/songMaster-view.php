@@ -1,11 +1,13 @@
-<div>
+<div class="master">
     <?php
     if($songs){
     foreach ($songs as $song) {
         echo 
         '<div class="songMaster">
-            <a href="index.php?page=songDetail&songId='.$song->getId().'"><h3>'.$song->getName().'</h3></a>
-            <h3>'.$song->getGenre().'</h3>'.
+            <div class="songLinks">
+<a href="index.php?page=songDetail&songId='.$song->getId().'"><h4>'.$song->getName().'</h4></a>
+            <h5>'.$song->getGenre().'</h5>
+            </div>'.
             Utils::createSoundcloudLinkMaster($song->getLink()).'
         </div>';
     }

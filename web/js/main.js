@@ -8,30 +8,47 @@ function getEle(id) {
     return document.getElementById(id);
 }
 
-//-----------------------------------------------VALIDATION
+function sortResults(id) {
+    $currentPage = window.location.href;
+    window.location.assign($currentPage + '&sortBy=' + getEle(id).options[getEle(id).selectedIndex].value);
+}
 
-function validateRegistration(){
+//-----------------------------------------------VALIDATION
+function validateMix() {
+//    var errors = 0;
+//    if (!checkEmpty('link')) {
+//        errors++;
+//    }
+//    if (!checkEmpty('name')) {
+//        errors++;
+//    }
+//    if(errors !== 0){
+//        return false;
+//    }
+    return true;
+}
+function validateRegistration() {
     var errors = 0;
-    
-    if(!checkEmpty('username')){
+
+    if (!checkEmpty('username')) {
         errors++;
     }
-    if(!checkEmpty('password')){
+    if (!checkEmpty('password')) {
         errors++;
     }
-    if(!checkEmpty('passwordRepeat')){
+    if (!checkEmpty('passwordRepeat')) {
         errors++;
     }
-    if(!checkEmpty('labelName')){
+    if (!checkEmpty('labelName')) {
         errors++;
     }
-    if(!dropdownIsValid('genre')){
+    if (!dropdownIsValid('genre')) {
         errors++;
     }
-    if(!dropdownIsValid('country')){
+    if (!dropdownIsValid('country')) {
         errors++;
     }
-    if(errors !== 0){
+    if (errors !== 0) {
         return false;
     }
     return true;
@@ -58,6 +75,38 @@ function checkEmpty(id) {
         errorId.innerHTML = '';
         return true;
     }
+    if (id === 'username') {
+        errorId.innerHTML = '<p class="error"> * Please enter a Username</p>';
+        return false;
+    }
+    if (id === 'password') {
+        errorId.innerHTML = '<p class="error"> * Please enter a password</p>';
+        return false;
+    }
+    if (id === 'passwordRepeat') {
+        errorId.innerHTML = '<p class="error"> * Please confirm your password</p>';
+        return false;
+    }
+    if (id === 'labelName') {
+        errorId.innerHTML = '<p class="error"> * Please enter a Label name</p>';
+        return false;
+    }
+    if (id === 'genre') {
+        errorId.innerHTML = '<p class="error"> * Please select a genre</p>';
+        return false;
+    }
+    if (id === 'country') {
+        errorId.innerHTML = '<p class="error"> * Please select a country</p>';
+        return false;
+    }
+    if(id === 'name'){
+        errorId.innerHTML = '<p class="error"> * Please enter a name</p>';
+        return false;
+    }
+    if(id === 'link'){
+        errorId.innerHTML = '<p class="error"> * Please enter an embed link</p>';
+        return false;
+    }
     errorId.innerHTML = '<p class="error"> * This field is required</p>';
     return false;
 }
@@ -65,7 +114,7 @@ function checkEmpty(id) {
 function checkDate(id, input) {
     var regex = /^([0-9]{2})\/([0-9]{2})\/([0-9]{4})$/;
     var errorId = 'error' + id;
-    
+
     if (regex.test(input) === true) {
         var trimmedInput = input.replace(/\//g, "");
 

@@ -28,7 +28,7 @@ if (array_key_exists('username', $_SESSION)) {
     $admin = $adminDao->findByUsername($_SESSION['username']);
     $contact = $contactDao->findByUserId($admin->getId());
     $label = $labelDao->findById($admin->getLabelId());
-
+     
     if (array_key_exists('submit', $_POST)) {
 
         $adminData = [
@@ -75,6 +75,11 @@ if (array_key_exists('username', $_SESSION)) {
             $savedAdmin = $adminDao->save($admin);
             $contactDao->save($contact);
         
+    }
+    if($contact->getPortrait()){
+        $portrait = $contact->getPortrait();
+    } else {
+        $portrait = $defaultPortrait;
     }
     $phoneArr = explode('-', $contact->getPhoneNumber());
 } else {

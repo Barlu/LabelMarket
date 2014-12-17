@@ -2,23 +2,26 @@
 <form action="index.php?page=profile" method="post"> 
     <fieldset>
         <legend>Personal Details</legend>
-        <label for="username">Username: </label><br/>
-        <input type="text" name="username" value="<?php echo $admin->getUsername(); ?>"/><br/>
-        <label for="firstName">First Name: </label><br/>
-        <input type="text" name="firstName" value="<?php echo $contact->getFirstName(); ?>"/><br/>
-        <label for="lastName">Last Name: </label><br/>
-        <input type="text" name="lastName" value="<?php echo $contact->getLastName(); ?>"/><br/>
-        <label for="email">Email: </label><br/>
-        <input type="email" name="email" size='30' value="<?php echo $contact->getEmail(); ?>"/><br/>
-        <label for="address">Address: </label><br/>
-        <input type="text" name="address" size='30' value="<?php echo $contact->getAddress(); ?>"/><br/>
-        <label for="phone">Phone: </label><br/>
-        <input type="text" name="international" size="3" value="<?php echo $phoneArr[0]; ?>"/>
-        <input type="text" name="area" size="2" value="<?php echo $phoneArr[1]; ?>"/>
-        <input type="text" name="phone" size="9" value="<?php echo $phoneArr[2]; ?>"/><br/>
-        <label for="portrait">Portrait: </label><br/>
-        <input type="text" name="portrait" size='30' value="<?php echo $contact->getPortrait(); ?>"/><br/>
-        <a href="index.php?page=changePassword"><button>Change Password</button></a>
+        <img id="profileImage" src="<?php echo $portrait ?>"/>
+        <div class="inputWrap">
+            <label for="username">Username: </label><br/>
+            <input type="text" name="username" value="<?php echo $admin->getUsername(); ?>"/><br/>
+            <label for="firstName">First Name: </label><br/>
+            <input type="text" name="firstName" value="<?php echo $contact->getFirstName(); ?>"/><br/>
+            <label for="lastName">Last Name: </label><br/>
+            <input type="text" name="lastName" value="<?php echo $contact->getLastName(); ?>"/><br/>
+            <label for="email">Email: </label><br/>
+            <input type="email" name="email" size='30' value="<?php echo $contact->getEmail(); ?>"/><br/>
+            <label for="address">Address: </label><br/>
+            <input type="text" name="address" size='30' value="<?php echo $contact->getAddress(); ?>"/><br/>
+            <label for="phone">Phone: </label><br/>
+            <input type="text" name="international" size="3" value="<?php echo $phoneArr[0]; ?>"/>
+            <input type="text" name="area" size="2" value="<?php echo $phoneArr[1]; ?>"/>
+            <input type="text" name="phone" size="9" value="<?php echo $phoneArr[2]; ?>"/><br/>
+            <label for="portrait">Portrait: </label><br/>
+            <input type="text" name="portrait" size='30' value="<?php echo $contact->getPortrait(); ?>"/><br/>
+            <a href="index.php?page=changePassword"><button>Change Password</button></a>
+        </div>
     </fieldset>
     <fieldset>
         <legend>Label Details</legend>

@@ -9,24 +9,40 @@ and open the template in the editor.
 */
 @media screen {
     /*---------------------------------------------GENERAL*/
+    body {
+        // background-color: #2a2c2b;
+    }
+    
+    .error {
+        color: red;
+    }
+    
     #wrapper {
         max-width: 980px;
         margin: auto;
+        border-color: #d9cb9e;
+        border-style: solid;
+        border-width: 1px;
     }
-    
-    h1, h2, h3, h4 {
+
+    h1, h2, h3, h4, h5 {
         font-family: 'Ubuntu', sans-serif;
+        margin: 5px;
     }
-    
+
     p, a {
         font-family: 'Roboto', sans-serif;
     }
-    
+
+    p {
+        margin: 5px;
+    }
+
     a {
         text-decoration: none;
         color: black;
     }
-    
+
     a:visited {
         color: black;
     }
@@ -34,27 +50,31 @@ and open the template in the editor.
     .clear {
         clear: both;
     }
-    
+
     .contentWrap {
         padding: 40px;
     }
     /*---------------------------------------------LAYOUT*/
     /*----------------------------------------GENERAL*/
-    
+
     #labelHeading {
         display: inline-block;
         font-size: 4em;
     }
     
+    h1 {
+        font-size: 3.5em;
+    }
+    
     h2 {
         font-size: 2.5em;
     }
-    
+
     .logoWrap {
         height: 200px;
         width: 200px;
         display: inline-block;
-        
+
     }
     .logoWrap img {
         max-width: 150px;
@@ -63,21 +83,59 @@ and open the template in the editor.
         left: 50%;
         transform: translate(-50%, -50%);
     }
-    
+
     .header {
-        background-image: url('../images/coverImage.jpg');
+        // background-image: url('../images/coverImage.jpg');
     }
     /*----------------------------------------COMMENTS*/
-    
+
     .commentWrap{
         padding: 80px;
     }
-    
+
     .comment {
+        border-color: #d9cb9e;
         border-style: solid;
         border-width: 1px;
         border-radius: 5px;
         padding: 10px;
+        background-color: white;
+        
+    }
+    
+    .comment img {
+        max-width: 50px;
+        max-height: 50px;
+        position: relative;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+    
+    .commentImageWrap {
+        width: 50px;
+        height: 50px;
+        float: left;
+        margin-right: 10px;
+    }
+    
+    .commentStamp {
+        font-style: italic;
+        float: right;
+        font-size: .8em;
+    }
+    
+    /*----------------------------------------PROFILE*/
+    #profileImage {
+        max-height: 200px;
+        max-width: 200px;
+        float: left;
+        margin: 30px;
+    }
+    
+    .inputWrap {
+        width: 350px;
+        margin: auto;
     }
     /*----------------------------------------NAVIGATION*/
 
@@ -167,6 +225,7 @@ and open the template in the editor.
         background-color: black;
         left: -40px;
         top: 3px;
+        z-index: 99;
     }
 
     /*---------------------------------------------MASTER/DETAIL*/
@@ -174,59 +233,173 @@ and open the template in the editor.
         text-align: center;
         padding: 50px;
     }
-    
+
     div.master h3, div.master h4, div.master h5 {
-        background-color: white;
+
     }
 
+    a p {
+        margin: 5px;
+    }
     
+    .edit {
+        float: right;
+    }
+
     /*--------------------------------LABEL*/
     .labelMaster {
         width: 200px;
-        max-height: 200px;
+        height: 200px;
         display: inline-block;
+    }
+
+    .labelMaster img {
+        height: 100px;
+        max-width: 100px;
     }
     /*--------------------------------ALBUM*/
     .albumMaster {
-        width: 150px;
-        float: left;
+        width: 200px;
+        height: 200px;
         display: inline-block;
+        margin: 10px;
         text-align: center;
+        background-size: 200px 200px;
+        background-repeat: no-repeat;
+        vertical-align: top;
+    }
+    .albumMaster h3{
+        padding: 0px;
+        margin: 0px;
     }
 
     .albumMaster img {
         max-width: 140px;
         max-height: 100px;
     }
-    
-    /*--------------------------------SONG*/
-    .songMaster {
-        width: 80%;
-        margin: auto;
-  
-        
+    .albumWrap:hover > .albumMaster{
+        opacity: .4;
     }
 
-    /*--------------------------------MIX*/
-}
+    .albumWrap:hover > .albumLinks{
+        display: block;
+    }
+    .albumLinks {
+        margin: 0px;
+        display: none;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 90;
+    }
 
-/*---------------------------------------------FORMS*/
-legend {
-    font-family: 'Ubuntu', sans-serif;
-    font-size: 2em;
-    padding: 10px;
-    text-align: left;
-}
-form {
+    .albumWrap {
+        position: relative;
+        display: inline-block;
+    }
     
-}
+    .albumDetail img {
+        float: right;
+        max-width: 300px;
+        max-height: 300px;
+        padding: 20px;
+    }
+    
+    .albumDetail p {
+        margin-top: 15px;
+        margin-bottom: 15px;
+    }
+    
+    
 
-form input, form label, form select, form textarea {
-    margin: 10px;
-}
-fieldset {
-    text-align: center;
-    font-family: 'Roboto', sans-serif;
+    /*--------------------------------SONG*/
+    .songMaster {
+        margin: 10px;
+        background-color: #fdfdfd;
+    }
+
+    .songMaster iframe {
+        width: 70%;
+        display: inline-block;
+    }
+
+    .songLinks {
+        display: inline-block;
+        height: 65px;
+        width: 200px;
+        vertical-align: top;
+        text-align: left;
+    }
+    
+    .songDetail img {
+        float: right;
+        max-width: 300px;
+        max-height: 300px;
+        
+    }
+    
+    .songDetail p {
+        margin-top: 15px;
+        margin-bottom: 15px;
+    }
+    
+
+    /*--------------------------------MIX*/
+    .mixMaster {
+        margin: 10px;
+        background-color: #fdfdfd;
+    }
+    
+    .mixMaster iframe {
+        width: 70%;
+        display: inline-block;
+    }
+    
+    .mixLinks {
+        display: inline-block;
+        height: 65px;
+        width: 200px;
+        vertical-align: top;
+        text-align: left;
+    }
+    
+    .mixDetail img {
+        float: right;
+        max-width: 300px;
+        max-height: 300px;
+    }
+    
+    .mixDetail p {
+        margin-top: 15px;
+        margin-bottom: 15px;
+    }
+    
+    /*---------------------------------------------FORMS*/
+    legend {
+        font-family: 'Ubuntu', sans-serif;
+        font-size: 2em;
+        padding: 10px;
+        text-align: left;
+    }
+    form {
+
+    }
+
+    form input, form label, form select, form textarea {
+        margin: 10px;
+    }
+    fieldset {
+        text-align: center;
+        font-family: 'Roboto', sans-serif;
+    }
+
+    /*---------------------------------------------FOOTER*/
+    .footer {
+        height: 200px;
+        background-color: #2a2c2b;
+    }
+
 }
 @media print {
 

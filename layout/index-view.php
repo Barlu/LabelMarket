@@ -94,7 +94,11 @@
                 require $template
                 ?>
             </div>
+            
         </div>
+        <div class="footer">
+                
+            </div>
         <script type="text/javascript" src="js/main.js"></script>    
     </body>
 </html>

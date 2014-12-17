@@ -105,9 +105,9 @@ class Dao {
         throw new Exception('DB error [' . $errorInfo[0] . ', ' . $errorInfo[1] . ']: ' . $errorInfo[2]);
     }
 
-    protected static function formatDateTime(DateTime $dateTime) {
-        $dateTime->format(DateTime::ISO8601);
-        return $dateTime;
+    public static function formatDateTime(DateTime $dateTime) {
+        $result = $dateTime->format('D F Y h:i a');
+        return $result;
     }
 
 }
