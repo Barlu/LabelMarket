@@ -18,13 +18,13 @@ class LabelDao extends Dao{
         $label->setId(null);
         $label->setDateCreated($now->getTimestamp());
         $sql = 'INSERT INTO label
-                VALUES(:id, :name, :email, :country, :description, :genre, :dateCreated, :cover, :logo);';
+                VALUES(:id, :name, :email, :country, :description, :genre, :uploadDate, :cover, :logo);';
         return $this->execute($sql, $label);
     }
 
     public function update(Label $label){
         $sql = 'UPDATE label
-                SET name = :name, email = :email, country = :country, description = :description, genre = :genre, dateCreated = :dateCreated, cover = :cover, logo = :logo 
+                SET name = :name, email = :email, country = :country, description = :description, genre = :genre, uploadDate = :uploadDate, cover = :cover, logo = :logo 
                 WHERE id = :id;';
                
         return $this->execute($sql, $label);
@@ -47,7 +47,7 @@ class LabelDao extends Dao{
             ':description' => $label->getDescription(),
             ':cover' => $label->getCover(),
             ':logo' => $label->getLogo(),
-            ':dateCreated' => $label->getDateCreated(),
+            ':uploadDate' => $label->getDateCreated(),
         ];
         
         return $params;

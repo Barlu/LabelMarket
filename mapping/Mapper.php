@@ -39,8 +39,8 @@ class Mapper {
             $label->setGenre($params['genre']);
         }
         
-        if(array_key_exists('dateCreated', $params)){
-            $label->setDateCreated($params['dateCreated']);
+        if(array_key_exists('uploadDate', $params)){
+            $label->setUploadDate($params['uploadDate']);
         }
         
         if(array_key_exists('cover', $params)){

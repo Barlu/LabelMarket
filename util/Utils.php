@@ -26,6 +26,10 @@ class Utils {
     public static function escape($string) {
         return htmlspecialchars($string, ENT_QUOTES);
     }
+    
+     public static function strip($string) {
+        return stripslashes($string, ENT_QUOTES);
+    }
 
     public static function getUrlParam($name) {
         if (!array_key_exists($name, $_GET)) {

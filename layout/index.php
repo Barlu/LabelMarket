@@ -1,6 +1,6 @@
 <?php
 
-$cover = 'http://www.limitlessproductionsent.net/lp-wp/wp-content/uploads/2012/11/lp-slidetwo-980x400.jpg';
+$cover = 'images/cover.jpg';
 $logo = 'images/logo.jpg';
 $labelName = 'Label Market';
 $labelId;
@@ -29,7 +29,7 @@ if (array_key_exists('username', $_SESSION)) {
     $admin = $adminDao->findByUsername($_SESSION['username']);
 }
 
-$labelSortByArr = [['A-z', 'a-z'], ['Z-a', 'z-a'], 'Genre' => 'genre', 'Most Recent' => 'mostRecent'];
+$labelSortByArr = [['A-z', 'a-z'], ['Z-a', 'z-a'], ['Genre', 'genre'], ['Most Recent', 'mostRecent']];
 $musicSortByArr = [['A-z', 'a-z'], ['Z-a', 'z-a'], ['Most Recent', 'mostRecent']];
 
 $genreArr = ['Please select...', 'Breaks', 'Chill Out', 'Deep House', 'Drum & Bass', "Dubstep", 'Electro House', 'Electronica', 'Funk/R&B', 'Glitch Hop', 'Hard Dance', 'Hardcore/Hard Techno', 'Hip-hop', 'House', 'Indie Dance/Nu Disco', 'Minimal', 'Pop/Rock', 'Progressive House', 'Psy-Trance', 'Reggae/Dub', 'Tech House', 'Techno', 'Trance'];

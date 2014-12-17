@@ -12,7 +12,8 @@
                 <label for="lastName">Last Name: </label><br/>
                 <input type="text" name="lastName" value="<?php echo $contact->getLastName();?>"/><br/>
                 <label for="email">*Email: </label><br/>
-                <input type="email" name="email" value="<?php echo $contact->getEmail();?>"/><br/>
+                <input type="email" name="email" id="email" onblur="checkEmail(this.id)" value="<?php echo $contact->getEmail();?>"/><br/>
+                <div id="emailError"></div>
                 <label for="username">*Username: </label><br/>
                 <input type="text" name="username" id="username" onblur="checkEmpty(this.id)" value="<?php echo $admin->getUsername();?>"/><br/>
                 <div id="usernameError"></div>
@@ -31,7 +32,8 @@
                 <input type="text" name="labelName" id="labelName" onblur="checkEmpty(this.id)" value="<?php echo $label->getName();?>"/><br/>
                 <div id="labelNameError"></div>
                 <label for="email">Email: </label><br/>
-                <input type="email" name="labelEmail" value="<?php echo $label->getEmail();?>"/><br/>
+                <input type="email" name="labelEmail" id="labelEmail" onblur="checkEmail(this.id)" value="<?php echo $label->getEmail();?>"/><br/>
+                <div id="labelEmailError"></div>
                 <label for="logo">Logo URL: </label><br/>
                 <input type="text" name="logo" value="<?php echo $label->getLogo();?>"/><br/>
                 <label for="cover">Cover Image URL: </label><br/>

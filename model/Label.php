@@ -17,7 +17,7 @@ class Label {
     private $name;
     private $email;
     private $country;
-    private $dateCreated;
+    private $uploadDate;
     private $cover;
     private $logo;
     private $genre;
@@ -60,8 +60,8 @@ class Label {
         return $this->country;
     }
 
-    public function getDateCreated() {
-        return $this->dateCreated;
+    public function getUploadDate() {
+        return $this->uploadDate;
     }
 
     public function getCover() {
@@ -84,8 +84,8 @@ class Label {
         $this->country = $country;
     }
 
-    public function setDateCreated($dateCreated) {
-        $this->dateCreated = $dateCreated;
+    public function setUploadDate($uploadDate) {
+        $this->uploadDate = $uploadDate;
     }
 
     public function setCover($cover) {

@@ -4,29 +4,106 @@
  * and open the template in the editor.
  */
 //-----------------------------------------------UTILS
+var isDelete = false;
+
 function getEle(id) {
     return document.getElementById(id);
 }
 
-function sortResults(id) {
-    $currentPage = window.location.href;
-    window.location.assign($currentPage + '&sortBy=' + getEle(id).options[getEle(id).selectedIndex].value);
+function setDelete(){
+    isDelete = true;
+}
+
+function updateQueryString(key, value, url) {
+    if (!url)
+        url = window.location.href;
+    var re = new RegExp("([?&])" + key + "=.*?(&|#|$)(.*)", "gi"),
+            hash;
+
+    if (re.test(url)) {
+        if (typeof value !== 'undefined' && value !== null)
+            window.location.assign(url.replace(re, '$1' + key + "=" + value + '$2$3'));
+        else {
+            hash = url.split('#');
+            url = hash[0].replace(re, '$1$3').replace(/(&|\?)$/, '');
+            if (typeof hash[1] !== 'undefined' && hash[1] !== null)
+                url += '#' + hash[1];
+            window.location.assign(url);
+        }
+    }
+    else {
+        if (typeof value !== 'undefined' && value !== null) {
+            var separator = url.indexOf('?') !== -1 ? '&' : '?';
+            hash = url.split('#');
+            url = hash[0] + separator + key + '=' + value;
+            if (typeof hash[1] !== 'undefined' && hash[1] !== null)
+                url += '#' + hash[1];
+            window.location.assign(url);
+        }
+        else
+            window.location.assign(url);
+    }
 }
 
 //-----------------------------------------------VALIDATION
 function validateMix() {
-//    var errors = 0;
-//    if (!checkEmpty('link')) {
-//        errors++;
-//    }
-//    if (!checkEmpty('name')) {
-//        errors++;
-//    }
-//    if(errors !== 0){
-//        return false;
-//    }
+    var errors = 0;
+    if (!checkEmpty('link')) {
+        errors++;
+    }
+    if (!checkEmpty('name')) {
+        errors++;
+    }
+    if (errors !== 0) {
+        return false;
+    }
     return true;
 }
+
+function validateAlbum() {
+    var errors = 0;
+    if (!checkEmpty('name')) {
+        errors++;
+    }
+    if (!dropdownIsValid('genre')) {
+        errors++;
+    }
+    if (errors !== 0) {
+        return false;
+    }
+    return true;
+}
+
+function validateSong(id) {
+    if (isDelete === false) {
+        var errors = 0;
+        console.log(id);
+        if (id === undefined) {
+            id = '';
+        }
+        console.log(id);
+        if (!checkEmpty('link' + id)) {
+            errors++;
+        }
+        if (!checkEmpty('name' + id)) {
+            errors++;
+        }
+        if (!checkEmpty('artist' + id)) {
+            errors++;
+        }
+        if (!dropdownIsValid('genre' + id)) {
+            errors++;
+        }
+        console.log(errors)
+        if (errors !== 0) {
+            return false;
+        }
+    }
+    isDelete = false;
+    return true;
+
+}
+
 function validateRegistration() {
     var errors = 0;
 
@@ -54,6 +131,18 @@ function validateRegistration() {
     return true;
 }
 
+function emailIsValid(id) {
+    var regex = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    var email = getEle(id).value;
+    var errorId = getEle(id + 'Error');
+    if (regex.test(email)) {
+        errorId.innerHTML = '';
+        return true;
+    }
+    errorId.innerHTML = '<p class="error"> * Please enter a valid email</p>';
+    return false;
+}
+
 function dropdownIsValid(id) {
     var selectedIndex = getEle(id).selectedIndex;
     var errorId = getEle(id + 'Error');
@@ -61,16 +150,24 @@ function dropdownIsValid(id) {
         errorId.innerHTML = '';
         return true;
     }
+    if (id === 'genre') {
+        errorId.innerHTML = '<p class="error"> * Please select a genre</p>';
+        return false;
+    }
+    if (id === 'country') {
+        errorId.innerHTML = '<p class="error"> * Please select a country</p>';
+        return false;
+    }
     errorId.innerHTML = '<p class="error"> * This field is required</p>';
     return false;
 }
 
 function checkEmpty(id) {
     var input = getEle(id).value;
-    console.log(input);
+
     var errorId = getEle(id + 'Error');
     input = input.replace(/ /g, "");
-    console.log(input);
+
     if (input.length !== 0) {
         errorId.innerHTML = '';
         return true;
@@ -91,20 +188,19 @@ function checkEmpty(id) {
         errorId.innerHTML = '<p class="error"> * Please enter a Label name</p>';
         return false;
     }
-    if (id === 'genre') {
-        errorId.innerHTML = '<p class="error"> * Please select a genre</p>';
-        return false;
-    }
-    if (id === 'country') {
-        errorId.innerHTML = '<p class="error"> * Please select a country</p>';
-        return false;
-    }
-    if(id === 'name'){
+
+    if (id.indexOf('name') !== -1) {
         errorId.innerHTML = '<p class="error"> * Please enter a name</p>';
         return false;
     }
-    if(id === 'link'){
+
+    if (id.indexOf('link') !== -1) {
         errorId.innerHTML = '<p class="error"> * Please enter an embed link</p>';
+        return false;
+    }
+
+    if (id.indexOf('artist') !== -1) {
+        errorId.innerHTML = '<p class="error"> * Please enter an artist</p>';
         return false;
     }
     errorId.innerHTML = '<p class="error"> * This field is required</p>';

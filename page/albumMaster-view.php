@@ -1,9 +1,10 @@
-<label for="sortBy">Sort By: </label>
-<select id="sortBy" onchange="sortResults(this.id);">
+
+<select class="sortBy" onchange="updateQueryString('sortBy', this.options[this.selectedIndex].value);">
+    
     <?php 
     foreach ($musicSortByArr as $valueArr){
     
-            if(array_key_exists('sortBy', $_GET) && $_GET['sortBy'] === $value){
+            if(array_key_exists('sortBy', $_GET) && $_GET['sortBy'] === $valueArr[1]){
                 echo '<option value="'.$valueArr[1].'" selected>'.$valueArr[0].'</option>';
             }else{
                 echo '<option value="'.$valueArr[1].'">'.$valueArr[0].'</option>';
@@ -11,6 +12,7 @@
       
 } ?>
 </select>
+<label class="sortBy" for="sortBy">Sort By: </label>
 <div class="master">
 <?php
 

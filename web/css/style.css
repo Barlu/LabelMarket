@@ -10,7 +10,9 @@ and open the template in the editor.
 @media screen {
     /*---------------------------------------------GENERAL*/
     body {
-        // background-color: #2a2c2b;
+        background-image: url('../images/backgroundImage.jpg');
+        background-repeat: no-repeat;
+        background-color: black;
     }
     
     .error {
@@ -20,8 +22,7 @@ and open the template in the editor.
     #wrapper {
         max-width: 980px;
         margin: auto;
-        border-color: #d9cb9e;
-        border-style: solid;
+        background-color: white;
         border-width: 1px;
     }
 
@@ -87,6 +88,13 @@ and open the template in the editor.
     .header {
         // background-image: url('../images/coverImage.jpg');
     }
+   
+    .sortBy {
+        float: right;
+        
+        margin: 5px;
+        
+    }
     /*----------------------------------------COMMENTS*/
 
     .commentWrap{
@@ -140,7 +148,7 @@ and open the template in the editor.
     /*----------------------------------------NAVIGATION*/
 
     #navBackground {
-        background-color: #2a2c2b;
+        background-color: #b4b4b4;
         height: 56px;
         border-bottom: 3px solid #374140;
         border-top: 3px solid #374140;
@@ -160,7 +168,7 @@ and open the template in the editor.
     #nav li {
         float:left;
         list-style: none; 
-        background-color: #2a2c2b;
+        background-color: #b4b4b4;
 
 
     }
