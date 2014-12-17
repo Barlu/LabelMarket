@@ -10,7 +10,7 @@ function getEle(id) {
     return document.getElementById(id);
 }
 
-function setDelete(){
+function setDelete() {
     isDelete = true;
 }
 
@@ -77,11 +77,9 @@ function validateAlbum() {
 function validateSong(id) {
     if (isDelete === false) {
         var errors = 0;
-        console.log(id);
         if (id === undefined) {
             id = '';
         }
-        console.log(id);
         if (!checkEmpty('link' + id)) {
             errors++;
         }
@@ -94,7 +92,9 @@ function validateSong(id) {
         if (!dropdownIsValid('genre' + id)) {
             errors++;
         }
-        console.log(errors)
+        if (!checkDate('releaseDate' + id, getEle('releaseDate' + id).value)) {
+            errors++;
+        }
         if (errors !== 0) {
             return false;
         }
@@ -131,7 +131,7 @@ function validateRegistration() {
     return true;
 }
 
-function emailIsValid(id) {
+function checkEmail(id) {
     var regex = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     var email = getEle(id).value;
     var errorId = getEle(id + 'Error');
@@ -208,87 +208,85 @@ function checkEmpty(id) {
 }
 
 function checkDate(id, input) {
-    var regex = /^([0-9]{2})\/([0-9]{2})\/([0-9]{4})$/;
-    var errorId = 'error' + id;
 
-    if (regex.test(input) === true) {
-        var trimmedInput = input.replace(/\//g, "");
+    if (input.trim().length !== 0) {
+        var regex = /^([0-9]{2})\/([0-9]{2})\/([0-9]{4})$/;
+        var errorId = id + 'Error';
 
-        var day = trimmedInput[0] + trimmedInput[1];
-        day = parseInt(day);
+        if (regex.test(input) === true) {
+            var trimmedInput = input.replace(/\//g, "");
 
-        var month = trimmedInput[2] + trimmedInput[3];
-        month = parseInt(month);
+            var day = trimmedInput[0] + trimmedInput[1];
+            day = parseInt(day);
 
-        var year = trimmedInput[6] + trimmedInput[7];
-        year = parseInt(year);
+            var month = trimmedInput[2] + trimmedInput[3];
+            month = parseInt(month);
 
-        var dayMonth31 = [01, 03, 05, 07, 08, 10, 12];
-        var dayMonth30 = [04, 06, 09, 11];
+            var year = trimmedInput[6] + trimmedInput[7];
+            year = parseInt(year);
 
-        var currentDate = new Date();
-        var currentYear = currentDate.getFullYear();
-        var currentMonth = currentDate.getMonth();
-        var currentDay = currentDate.getDate();
+            var dayMonth31 = [01, 03, 05, 07, 08, 10, 12];
+            var dayMonth30 = [04, 06, 09, 11];
 
-        currentMonth = currentMonth + 1;
-        currentMonth = parseInt(currentMonth);
+            var currentDate = new Date();
+            var currentYear = currentDate.getFullYear();
+            var currentMonth = currentDate.getMonth();
+            var currentDay = currentDate.getDate();
+
+            currentMonth = currentMonth + 1;
+            currentMonth = parseInt(currentMonth);
 
 //        Change current year to 2 digit
-        currentYear = currentYear.toString();
-        currentYear = currentYear.slice(-2);
-        currentYear = parseInt(currentYear);
+            currentYear = currentYear.toString();
+            currentYear = currentYear.slice(-2);
+            currentYear = parseInt(currentYear);
 
-        currentDay = ('0' + currentDay).slice(-2);
-        currentDay = parseInt(currentDay);
+            currentDay = ('0' + currentDay).slice(-2);
+            currentDay = parseInt(currentDay);
 
 
-//        Check that input date is past current date    
 
-        if (year < currentYear) {
-            if (id !== 'dateFrom') {
-                getEle(errorId).innerHTML = '<p class="errorMessage">* This date is in the past. Please enter a current date</p>';
-            } else {
-                getEle(errorId).innerHTML = '<p class="errorMessage">* This date is either before or the same as drop off. Please enter a current date</p>';
-            }
-            getEle(id).value = input;
-            return false;
-        } else if (month < currentMonth && year === currentYear) {
-            if (id !== 'dateFrom') {
-                getEle(errorId).innerHTML = '<p class="errorMessage">* This date is in the past. Please enter a current date</p>';
-            } else {
-                getEle(errorId).innerHTML = '<p class="errorMessage">* This date is either before or the same as drop off. Please enter a current date</p>';
-            }
-            getEle(id).value = input;
-            return false;
-        } else if (day <= currentDay && month === currentMonth && year === currentYear) {
-            if (id !== 'dateFrom') {
-                getEle(errorId).innerHTML = '<p class="errorMessage">* This date is in the past. Please enter a current date</p>';
-            } else {
-                getEle(errorId).innerHTML = '<p class="errorMessage">* This date is either before or the same as drop off. Please enter a current date</p>';
-            }
-            getEle(id).value = input;
-            return false;
-        } else
+
+            if (year < currentYear) {
+                getEle(errorId).innerHTML = '<p class="errorM">* This date is in the past. Please enter a current date</p>';
+
+                getEle(id).value = input;
+                return false;
+            } else if (month < currentMonth && year === currentYear) {
+
+                getEle(errorId).innerHTML = '<p class="error">* This date is in the past. Please enter a current date</p>';
+
+                getEle(id).value = input;
+                return false;
+            } else if (day <= currentDay && month === currentMonth && year === currentYear) {
+                getEle(errorId).innerHTML = '<p class="error">* This date is in the past. Please enter a current date</p>';
+                getEle(id).value = input;
+                return false;
+            } else
 //        Check that day input is valid depending on month and that month is valid
-        if (dayMonth31.indexOf(month) !== -1 && day < 32) {
-            getEle(id).value = input;
-            return true;
-        } else if (dayMonth30.indexOf(month) !== -1 && day < 31) {
-            getEle(id).value = input;
-            return true;
-        } else if (month === 2 && day < 29) {
-            getEle(id).value = input;
-            return true;
-        } else {
-            getEle(errorId).innerHTML = '<p class="errorMessage">* The date you have enetered is outside the allowable range. Please try again.</p>';
-            getEle(id).value = input;
-            return false;
-        }
+            if (dayMonth31.indexOf(month) !== -1 && day < 32) {
+                getEle(errorId).innerHTML = '';
+                getEle(id).value = input;
+                return true;
+            } else if (dayMonth30.indexOf(month) !== -1 && day < 31) {
+                getEle(errorId).innerHTML = '';
+                getEle(id).value = input;
+                return true;
+            } else if (month === 2 && day < 29) {
+                getEle(errorId).innerHTML = '';
+                getEle(id).value = input;
+                return true;
+            } else {
+                getEle(errorId).innerHTML = '<p class="error">* The date you have enetered is outside the allowable range. Please try again.</p>';
+                getEle(id).value = input;
+                return false;
+            }
 
+        }
+        getEle(errorId).innerHTML = '<p class="error">* This date is not in the correct format. Please make sure the date entered reads dd/mm/yyy</p>';
+        getEle(id).value = input;
+        return false;
     }
-    getEle(errorId).innerHTML = '<p class="errorMessage">* This date is not in the correct format. Please make sure the date entered reads dd/mm/yyy</p>';
-    getEle(id).value = input;
-    return false;
+    return true;
 }
 

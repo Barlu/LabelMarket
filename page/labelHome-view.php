@@ -5,8 +5,9 @@ if ($mix) {
 
         <a href="index.php?page=mixDetail&mixId=<?php echo $mix->getId() ?>"><h3><?php echo $mix->getName() ?></h3></a>
         <h4><?php echo $mix->getArtist() ?></h4>
-        <?php echo Utils::createMixcloudLinkDetail($mix->getLink()); ?>
-
+        <div class="mixDetail">
+            <?php echo Utils::createMixcloudLinkDetail($mix->getLink()); ?>
+        </div>   
     </div>
     <?php
 } else if ($_SESSION['role'] === 'admin') {

@@ -16,7 +16,7 @@ if (array_key_exists('labelId', $_SESSION) || array_key_exists('labelId', $_GET)
     }
     $labelDao = new LabelDao();
     $label = $labelDao->findById($labelId);
-    //$cover = $label->getCover();
+    $cover = $label->getCover();
     if ($label->getLogo()) {
         $logo = $label->getLogo();
     }else{

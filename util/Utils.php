@@ -28,7 +28,7 @@ class Utils {
     }
     
      public static function strip($string) {
-        return stripslashes($string, ENT_QUOTES);
+        return stripslashes($string);
     }
 
     public static function getUrlParam($name) {
@@ -39,6 +39,18 @@ class Utils {
         }
     }
     
+    public static function convertDateToTimestamp($str){
+        $dateTime = DateTime::createFromFormat('d/m/Y', $str);
+        $timestamp = $dateTime->getTimestamp();
+        return $timestamp;
+    }
+    
+    public static function convertTimestampDateOnly($timestamp){
+        $date = new DateTime();
+        $date->setTimestamp($timestamp);
+        $result = Dao::formatDate($date);
+        return $result;
+    }
     public static function convertTimestamp($timestamp){
         $date = new DateTime();
         $date->setTimestamp($timestamp);

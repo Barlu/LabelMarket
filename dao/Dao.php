@@ -109,5 +109,10 @@ class Dao {
         $result = $dateTime->format('D F Y h:i a');
         return $result;
     }
+    
+    public static function formatDate(DateTime $dateTime) {
+        $result = $dateTime->format('d/m/Y');
+        return $result;
+    }
 
 }

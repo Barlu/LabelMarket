@@ -16,7 +16,7 @@ class LabelDao extends Dao{
     public function insert(Label $label) {
         $now = new DateTime;
         $label->setId(null);
-        $label->setDateCreated($now->getTimestamp());
+        $label->setUploadDate($now->getTimestamp());
         $sql = 'INSERT INTO label
                 VALUES(:id, :name, :email, :country, :description, :genre, :uploadDate, :cover, :logo);';
         return $this->execute($sql, $label);
@@ -47,7 +47,7 @@ class LabelDao extends Dao{
             ':description' => $label->getDescription(),
             ':cover' => $label->getCover(),
             ':logo' => $label->getLogo(),
-            ':uploadDate' => $label->getDateCreated(),
+            ':uploadDate' => $label->getUploadDate(),
         ];
         
         return $params;

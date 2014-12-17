@@ -23,25 +23,25 @@ $label->setName('');
 if (array_key_exists('submit', $_POST)) {
 
     $adminData = [
-        'username' => Utils::escape($_POST['username']),
+        'username' => Utils::strip($_POST['username']),
         'password' => Utils::cryptPassword($_POST['password'])
     ];
 
     $contactData = [
-        'firstName' => Utils::escape($_POST['firstName']),
-        'lastName' => Utils::escape($_POST['lastName']),
-        'email' => Utils::escape($_POST['email']),
-        'portrait' => Utils::escape($_POST['portrait'])
+        'firstName' => Utils::strip($_POST['firstName']),
+        'lastName' => Utils::strip($_POST['lastName']),
+        'email' => Utils::strip($_POST['email']),
+        'portrait' => Utils::strip($_POST['portrait'])
     ];
 
     $labelData = [
-        'name' => Utils::escape($_POST['labelName']),
-        'email' => Utils::escape($_POST['labelEmail']),
-        'country' => Utils::escape($_POST['country']),
-        'logo' => Utils::escape($_POST['logo']),
-        'cover' => Utils::escape($_POST['cover']),
-        'genre' => Utils::escape($_POST['genre']),
-        'description' => Utils::escape($_POST['description'])
+        'name' => Utils::strip($_POST['labelName']),
+        'email' => Utils::strip($_POST['labelEmail']),
+        'country' => Utils::strip($_POST['country']),
+        'logo' => Utils::strip($_POST['logo']),
+        'cover' => Utils::strip($_POST['cover']),
+        'genre' => Utils::strip($_POST['genre']),
+        'description' => Utils::strip($_POST['description'])
     ];
 
     Mapper::mapUser($admin, $adminData);
@@ -49,7 +49,7 @@ if (array_key_exists('submit', $_POST)) {
     Mapper::mapLabel($label, $labelData);
 
     if (Validator::checkUsername($admin->getUsername())) {
-        if (Utils::escape($_POST['password']) === Utils::escape($_POST['passwordRepeat']) && strlen(trim($_POST['passwordRepeat'])) > 5) {
+        if (Utils::strip($_POST['password']) === Utils::strip($_POST['passwordRepeat']) && strlen(trim($_POST['passwordRepeat'])) > 5) {
             $labelDao = new LabelDao();
             $savedLabel = $labelDao->save($label);
             $adminDao = new AdminDao();

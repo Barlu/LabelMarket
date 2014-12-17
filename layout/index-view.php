@@ -16,18 +16,15 @@
     </head>
     <body>
         <div id='wrapper'>
-            <div class="header">
-                <div class="cover">
-                    <img src="<?php echo $cover; ?>"/>
-                </div>
 
-                <div>
-                    <div class="logoWrap">
-                        <img src="<?php echo $logo; ?>"/>
-                    </div>
-                    <h1 id="labelHeading"><?php echo $labelName; ?></h1>
-                </div>
+            <div class="cover">
+                <img src="<?php echo $cover; ?>"/>
             </div>
+
+            <div class="header">
+                <h1 id="labelHeading"><?php echo $labelName; ?></h1>
+            </div>
+
 
             <div id="navBackground">
                 <ul id="nav">
@@ -42,7 +39,7 @@
                             <li ><a href="index.php?page=mixMaster">Mixes</a></li>
                         </ul>
                         </li>';
-                        
+
                         if (array_key_exists('username', $_SESSION)) {
                             echo '  <li ><a href="#">Upload</a>
                                     <ul>
@@ -50,7 +47,7 @@
                                         <li ><a href="index.php?page=addEditMix">Mix</a></li>
                                     </ul>
                                     </li>
-                                    <li ><a href="index.php?page=profile">'.ucfirst($_SESSION['username']).'</a>
+                                    <li ><a href="index.php?page=profile">' . ucfirst($_SESSION['username']) . '</a>
                                     <ul>
                                     <li ><a href="index.php?page=labelHome">Label Home</a></li>
                                     <li ><a href="index.php?page=profile">Profile</a></li>
@@ -68,13 +65,13 @@
                         if (array_key_exists('username', $_SESSION)) {
                             echo '  <li ><a href="#">Upload</a>
                                     <ul>
-                                        <li ><a href="index.php?page=addEditAlbum&labelId='.$admin->getLabelId().'">Album</a></li>
-                                        <li ><a href="index.php?page=addEditMix&labelId='.$admin->getLabelId().'">Mix</a></li>
+                                        <li ><a href="index.php?page=addEditAlbum&labelId=' . $admin->getLabelId() . '">Album</a></li>
+                                        <li ><a href="index.php?page=addEditMix&labelId=' . $admin->getLabelId() . '">Mix</a></li>
                                     </ul>
                                     </li>
-                                    <li ><a href="index.php?page=profile">'.ucfirst($_SESSION['username']).'</a>
+                                    <li ><a href="index.php?page=profile">' . ucfirst($_SESSION['username']) . '</a>
                                     <ul>
-                                    <li ><a href="index.php?page=labelHome&labelId='.$admin->getLabelId().'">Label Home</a></li>
+                                    <li ><a href="index.php?page=labelHome&labelId=' . $admin->getLabelId() . '">Label Home</a></li>
                                     <li ><a href="index.php?page=profile">Profile</a></li>
                                     <li ><a href="index.php?page=logOut">Log Out</a></li>
                                     <ul>
@@ -88,17 +85,17 @@
                     ?>
                 </ul>
             </div>
-            
+
             <div class='contentWrap'>
                 <?php
                 require $template
                 ?>
             </div>
-            
+            <div class="footer">
+
+            </div>    
         </div>
-        <div class="footer">
-                
-            </div>
+
         <script type="text/javascript" src="js/main.js"></script>    
     </body>
 </html>

@@ -11,6 +11,7 @@ $contact->setFirstName('');
 $contact->setLastName('');
 $contact->setPortrait('');
 $contact->setAddress('');
+$contact->setPhoneNumber('');
 
 $label = new Label();
 $label->setGenre('');
@@ -81,7 +82,11 @@ if (array_key_exists('username', $_SESSION)) {
     } else {
         $portrait = $defaultPortrait;
     }
-    $phoneArr = explode('-', $contact->getPhoneNumber());
+    if($contact->getPhoneNumber()){
+        $phoneArr = explode('-', $contact->getPhoneNumber());
+    } else {
+        $phoneArr = ['','',''];
+    }
 } else {
     header('Location: index.php');
 }

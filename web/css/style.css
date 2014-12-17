@@ -12,23 +12,24 @@ and open the template in the editor.
     body {
         background-image: url('../images/backgroundImage.jpg');
         background-repeat: no-repeat;
-        background-color: black;
+              background-color: black;
     }
     
     .error {
         color: red;
     }
-    
+
     #wrapper {
         max-width: 980px;
         margin: auto;
-        background-color: white;
+        background-color: #ecebf0;
         border-width: 1px;
     }
 
     h1, h2, h3, h4, h5 {
         font-family: 'Ubuntu', sans-serif;
         margin: 5px;
+        color: #484a47;
     }
 
     p, a {
@@ -57,16 +58,27 @@ and open the template in the editor.
     }
     /*---------------------------------------------LAYOUT*/
     /*----------------------------------------GENERAL*/
+    .cover {
+        border-bottom: 3px solid #484A47;
+    }
+
+    .cover img {
+        width: 100%;
+    }
 
     #labelHeading {
         display: inline-block;
         font-size: 4em;
+        position: relative;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
     }
-    
+
     h1 {
         font-size: 3.5em;
     }
-    
+
     h2 {
         font-size: 2.5em;
     }
@@ -83,17 +95,18 @@ and open the template in the editor.
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
+        border: 2px solid #c1ce96;
     }
 
     .header {
-        // background-image: url('../images/coverImage.jpg');
+        height: 200px;
     }
-   
+
     .sortBy {
         float: right;
-        
+
         margin: 5px;
-        
+
     }
     /*----------------------------------------COMMENTS*/
 
@@ -108,9 +121,9 @@ and open the template in the editor.
         border-radius: 5px;
         padding: 10px;
         background-color: white;
-        
+
     }
-    
+
     .comment img {
         max-width: 50px;
         max-height: 50px;
@@ -119,20 +132,20 @@ and open the template in the editor.
         left: 50%;
         transform: translate(-50%, -50%);
     }
-    
+
     .commentImageWrap {
         width: 50px;
         height: 50px;
         float: left;
         margin-right: 10px;
     }
-    
+
     .commentStamp {
         font-style: italic;
         float: right;
         font-size: .8em;
     }
-    
+
     /*----------------------------------------PROFILE*/
     #profileImage {
         max-height: 200px;
@@ -140,7 +153,7 @@ and open the template in the editor.
         float: left;
         margin: 30px;
     }
-    
+
     .inputWrap {
         width: 350px;
         margin: auto;
@@ -148,11 +161,13 @@ and open the template in the editor.
     /*----------------------------------------NAVIGATION*/
 
     #navBackground {
-        background-color: #b4b4b4;
+        background-color: #c1ce96;
         height: 56px;
-        border-bottom: 3px solid #374140;
-        border-top: 3px solid #374140;
+        /*        border-bottom: 3px solid #374140;
+                border-top: 3px solid #374140;*/
         text-align: center;
+        border-bottom: 3px solid #484A47;
+        
     }
 
     #nav {
@@ -168,7 +183,7 @@ and open the template in the editor.
     #nav li {
         float:left;
         list-style: none; 
-        background-color: #b4b4b4;
+
 
 
     }
@@ -179,7 +194,7 @@ and open the template in the editor.
         padding-bottom: 15px;
         padding-left: 15px;
         padding-right: 15px;
-        color:#FFF;
+        color:#484a47;
         font-size:22px;
         text-decoration: none;
         font-family: 'Ubuntu', sans-serif;
@@ -190,17 +205,21 @@ and open the template in the editor.
     #nav li ul li a {
         display:block;
         padding: 15px 10px 15px 10px;
-        color:#FFF;
+        color:#484a47;
         font-size:14px;
         text-decoration: none;
         font-family: 'Ubuntu', sans-serif;
         text-align: center;
         width: 110px;
-        border-bottom: 3px solid #374140;
+        border-bottom: 3px solid #484A47;
 
     }
 
-    li a:hover { background-color: #d9cb9e;  }
+    #nav li a:hover { 
+        background-color: #ecebf0; 
+        color: #484a47;
+
+    }
 
 
     /* Change this in order to change the Dropdown symbol 
@@ -230,7 +249,7 @@ and open the template in the editor.
         float:none;
         position: relative;
         border-bottom:none;
-        background-color: black;
+        background-color: #c1ce96;
         left: -40px;
         top: 3px;
         z-index: 99;
@@ -249,7 +268,7 @@ and open the template in the editor.
     a p {
         margin: 5px;
     }
-    
+
     .edit {
         float: right;
     }
@@ -275,6 +294,9 @@ and open the template in the editor.
         background-size: 200px 200px;
         background-repeat: no-repeat;
         vertical-align: top;
+        -webkit-box-shadow: 1px 1px 9px 0px rgba(50, 50, 50, 0.79);
+        -moz-box-shadow:    1px 1px 9px 0px rgba(50, 50, 50, 0.79);
+        box-shadow:         1px 1px 9px 0px rgba(50, 50, 50, 0.79);
     }
     .albumMaster h3{
         padding: 0px;
@@ -284,6 +306,9 @@ and open the template in the editor.
     .albumMaster img {
         max-width: 140px;
         max-height: 100px;
+        -webkit-box-shadow: 1px 1px 9px 0px rgba(50, 50, 50, 0.79);
+        -moz-box-shadow:    1px 1px 9px 0px rgba(50, 50, 50, 0.79);
+        box-shadow:         1px 1px 9px 0px rgba(50, 50, 50, 0.79);;
     }
     .albumWrap:hover > .albumMaster{
         opacity: .4;
@@ -307,24 +332,32 @@ and open the template in the editor.
         display: inline-block;
     }
     
+    .albumDetail {
+        margin: 50px;
+    }
+    
     .albumDetail img {
         float: right;
         max-width: 300px;
         max-height: 300px;
-        padding: 20px;
+        margin: 20px;
+        -webkit-box-shadow: 1px 1px 9px 0px rgba(50, 50, 50, 0.79);
+        -moz-box-shadow:    1px 1px 9px 0px rgba(50, 50, 50, 0.79);
+        box-shadow:         1px 1px 9px 0px rgba(50, 50, 50, 0.79);
     }
-    
+
     .albumDetail p {
         margin-top: 15px;
         margin-bottom: 15px;
     }
-    
-    
 
     /*--------------------------------SONG*/
     .songMaster {
         margin: 10px;
         background-color: #fdfdfd;
+        -webkit-box-shadow: 1px 1px 9px 0px rgba(50, 50, 50, 0.79);
+        -moz-box-shadow:    1px 1px 9px 0px rgba(50, 50, 50, 0.79);
+        box-shadow:         1px 1px 9px 0px rgba(50, 50, 50, 0.79);
     }
 
     .songMaster iframe {
@@ -339,31 +372,33 @@ and open the template in the editor.
         vertical-align: top;
         text-align: left;
     }
-    
-    .songDetail img {
-        float: right;
-        max-width: 300px;
-        max-height: 300px;
-        
+    .songDetail {
+        margin: 50px;
     }
-    
+    .songDetail iframe {
+        -webkit-box-shadow: 3px 3px 9px 0px rgba(50, 50, 50, 0.79);
+        -moz-box-shadow:    3px 3px 9px 0px rgba(50, 50, 50, 0.79);
+        box-shadow:         3px 3px 9px 0px rgba(50, 50, 50, 0.79);
+    }
+
     .songDetail p {
         margin-top: 15px;
         margin-bottom: 15px;
     }
-    
+
 
     /*--------------------------------MIX*/
     .mixMaster {
         margin: 10px;
         background-color: #fdfdfd;
+        
     }
-    
+
     .mixMaster iframe {
         width: 70%;
         display: inline-block;
     }
-    
+
     .mixLinks {
         display: inline-block;
         height: 65px;
@@ -371,18 +406,22 @@ and open the template in the editor.
         vertical-align: top;
         text-align: left;
     }
-    
-    .mixDetail img {
-        float: right;
-        max-width: 300px;
-        max-height: 300px;
+
+    .mixDetail {
+        margin: 50px;
     }
     
+    .mixDetail iframe {
+        -webkit-box-shadow: 1px 1px 9px 0px rgba(50, 50, 50, 0.79);
+        -moz-box-shadow:    1px 1px 9px 0px rgba(50, 50, 50, 0.79);
+        box-shadow:         1px 1px 9px 0px rgba(50, 50, 50, 0.79);
+    }
+
     .mixDetail p {
         margin-top: 15px;
         margin-bottom: 15px;
     }
-    
+
     /*---------------------------------------------FORMS*/
     legend {
         font-family: 'Ubuntu', sans-serif;
@@ -390,12 +429,9 @@ and open the template in the editor.
         padding: 10px;
         text-align: left;
     }
-    form {
-
-    }
 
     form input, form label, form select, form textarea {
-        margin: 10px;
+        margin: 8px;
     }
     fieldset {
         text-align: center;
@@ -405,7 +441,8 @@ and open the template in the editor.
     /*---------------------------------------------FOOTER*/
     .footer {
         height: 200px;
-        background-color: #2a2c2b;
+        background-color: #484a47;
+        border-top: 3px solid #c1ce96;
     }
 
 }

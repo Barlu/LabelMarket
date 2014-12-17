@@ -27,7 +27,7 @@
                 <input type='text' name='link' id='link" . $songs[$i]->getId() . "' onblur='checkEmpty(this.id)' value='" . Utils::escape(Utils::createSoundcloudLinkMaster($songs[$i]->getLink())) . "'/>
 
                 <label for='releaseDate'>Release Date: </label>
-                <input type='text' name='releaseDate' id='link" . $songs[$i]->getId() . "' onblur='checkDate(this.id)' size='10' value='" . Utils::escape($songs[$i]->getReleaseDate()) . "' placeholer='dd/mm/yyyy'/>
+                <input type='text' name='releaseDate' id='link" . $songs[$i]->getId() . "' onblur='checkDate(this.id)' size='10' value='" . Utils::convertTimestampDateOnly($songs[$i]->getReleaseDate()) . "' placeholer='dd/mm/yyyy'/>
                 <label for='genre'>Genre: </label>
                 <select name='genre' id='genre" . $songs[$i]->getId() . "'>
                     <option >Please select...</option>";
@@ -52,7 +52,7 @@
         <fieldset> 
             <legend>Add Track</legend>
             <div>
-                <div id='nameError'></div><div id='artistError'></div><div id='genreError'></div><div id='linkError'></div>
+                <div id='nameError'></div><div id='artistError'></div><div id='genreError'></div><div id='linkError'></div><div id='releaseDateError'></div>
                 <label for='name'>Name: </label>
                 <input type='text' name='name' id='name' onblur='checkEmpty(this.id)'/>
 
@@ -77,12 +77,12 @@
                 <label for='link'>Souncloud Embed Link: </label>
                 <input type='text' name='link' id='link' onblur='checkEmpty(this.id)'/>
                 <label for='releaseDate'>Release Date: </label>
-                <input type='text' name='releaseDate' size='10' placeholder='dd/mm/yyyy'/>
+                <input type='text' name='releaseDate' id='releaseDate' size='10' onblur='checkDate(this.id, this.value)' placeholder='dd/mm/yyyy'/>
                 <label for='description'>Description: </label><br/>
                 <textarea name='description' rows='3' cols='50'></textarea><br/>
                 <input type='hidden' name='songId'/>
                 <input type='submit' value='Save' name='saveSong'/><br/>
-                <input type='submit' value='Finish' name='finish'/>
+                <input type='submit' value='Finish' name='finish' onclick='setDelete()'/>
             </div>
         </fieldset>
     </form>

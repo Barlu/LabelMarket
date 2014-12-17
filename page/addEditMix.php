@@ -23,20 +23,20 @@ if (array_key_exists('save', $_POST)) {
 
     if (array_key_exists('mixId', $_GET)) {
         $data = [
-            'id' => $_GET['mixId'],
+            'id' => Utils::strip($_GET['mixId']),
             'labelId' => $_SESSION['labelId'],
-            'name' => $_POST['name'],
-            'artist' => $_POST['artist'],
-            'description' => $_POST['description'],
+            'name' => Utils::strip($_POST['name']),
+            'artist' => Utils::strip($_POST['artist']),
+            'description' => Utils::strip($_POST['description']),
             'link' => Utils::stripMixcloudId($_POST['link']),
-            'uploadDate' => $mix->getUploadDate()
+            'uploadDate' => Utils::strip($mix->getUploadDate())
         ];
     } else {
         $data = [
-            'name' => $_POST['name'],
-            'artist' => $_POST['artist'],
+            'name' => Utils::strip($_POST['name']),
+            'artist' => Utils::strip($_POST['artist']),
             'labelId' => $_SESSION['labelId'],
-            'description' => $_POST['description'],
+            'description' => Utils::strip($_POST['description']),
             'link' => Utils::stripMixcloudId($_POST['link'])
         ];
     }
