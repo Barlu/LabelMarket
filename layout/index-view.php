@@ -32,7 +32,7 @@
                     if (array_key_exists('labelId', $_SESSION)) {
                         echo '
                         <li ><a href="index.php">Home</a></li>
-                        <li ><a href="index.php?page=labelMaster">Music</a>
+                        <li ><a href="index.php?page=albumMaster">Music</a>
                         <ul>
                             <li ><a href="index.php?page=albumMaster">Albums</a></li>
                             <li ><a href="index.php?page=songMaster">Songs</a></li>
@@ -85,7 +85,12 @@
                     ?>
                 </ul>
             </div>
-
+            <?php
+            if(array_key_exists('labelId', $_SESSION)){
+                echo '<div class="breadcrumbWrap" ><a class="breadcrumbs" href="index.php" >Home</a><p class="breadcrumbs"> > </p><a class="breadcrumbs" href="index.php?page=labelHome">Label Home</a></div>'; 
+            }           
+            
+            ?>
             <div class='contentWrap'>
                 <?php
                 require $template

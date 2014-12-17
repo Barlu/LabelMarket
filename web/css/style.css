@@ -46,7 +46,7 @@ and open the template in the editor.
     }
 
     a:visited {
-        color: black;
+        color: #484A47;
     }
 
     .clear {
@@ -55,6 +55,18 @@ and open the template in the editor.
 
     .contentWrap {
         padding: 40px;
+    }
+    
+    .breadcrumbWrap {
+        display: inline-block;
+        color: #484A47;
+        margin: 20px;
+    }
+    
+    .breadcrumbs {
+        display: inline-block;
+        margin: 10px;
+        color: #484A47;
     }
     /*---------------------------------------------LAYOUT*/
     /*----------------------------------------GENERAL*/
