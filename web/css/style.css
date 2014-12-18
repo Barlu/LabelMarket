@@ -127,7 +127,7 @@ and open the template in the editor.
     }
 
     .comment {
-        border-color: #d9cb9e;
+        border-color: #c1ce96;
         border-style: solid;
         border-width: 1px;
         border-radius: 5px;
@@ -175,8 +175,6 @@ and open the template in the editor.
     #navBackground {
         background-color: #c1ce96;
         height: 56px;
-        /*        border-bottom: 3px solid #374140;
-                border-top: 3px solid #374140;*/
         text-align: center;
         border-bottom: 3px solid #484A47;
         
@@ -295,6 +293,9 @@ and open the template in the editor.
     .labelMaster img {
         height: 100px;
         max-width: 100px;
+        -webkit-box-shadow: 1px 1px 9px 0px rgba(50, 50, 50, 0.79);
+        -moz-box-shadow:    1px 1px 9px 0px rgba(50, 50, 50, 0.79);
+        box-shadow:         1px 1px 9px 0px rgba(50, 50, 50, 0.79);
     }
     /*--------------------------------ALBUM*/
     .albumMaster {
@@ -403,17 +404,20 @@ and open the template in the editor.
     .mixMaster {
         margin: 10px;
         background-color: #fdfdfd;
-        
+        -webkit-box-shadow: 1px 1px 9px 0px rgba(50, 50, 50, 0.79);
+        -moz-box-shadow:    1px 1px 9px 0px rgba(50, 50, 50, 0.79);
+        box-shadow:         1px 1px 9px 0px rgba(50, 50, 50, 0.79);
     }
 
     .mixMaster iframe {
         width: 70%;
         display: inline-block;
+        vertical-align: middle;
     }
 
     .mixLinks {
         display: inline-block;
-        height: 65px;
+        height: 60px;
         width: 200px;
         vertical-align: top;
         text-align: left;
