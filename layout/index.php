@@ -7,7 +7,8 @@ $labelId;
 $adminDao = new AdminDao();
 $defaultPortrait = 'https://c1.staticflickr.com/5/4067/4570107261_d1c99c07e0_z.jpg';
 $defaultLogo = 'http://cdn0.capterra-static.com/logos/150/vendor-placeholder-logo.png';
-        
+$title;
+
 if (array_key_exists('labelId', $_SESSION) || array_key_exists('labelId', $_GET)) {
     if (array_key_exists('labelId', $_SESSION)) {
         $labelId = $_SESSION['labelId'];
@@ -24,6 +25,57 @@ if (array_key_exists('labelId', $_SESSION) || array_key_exists('labelId', $_GET)
     }
     $labelName = $label->getName();
 }
+
+if (array_key_exists('page', $_GET)){
+    switch ($_GET['page']) {
+        case 'home' : 
+            $title = 'Home | Label Market | Create your own Record Label to promote your Music';
+            break;
+        case 'labelMaster' : 
+            $title = 'Browse | Label Market | Search all currently registered Labels';
+            break;
+        case 'register' : 
+            $title = 'Registration | Label Market | Label/Account Registration';
+            break;
+        case 'logIn' : 
+            $title = 'Log In | Label Market | Log In to your Label account';
+            break;
+        case 'labelHome' : 
+            $title = $labelName.' | Label Market | Wanaka/Queenstown Scenic Adventures';
+            break;
+        case 'albumMaster' :
+            $title = 'Albums | '.$labelName.' | Wanaka/Queenstown Scenic Adventures';
+            break;
+        case 'albumDetail' :
+            $title = 'Album | '.$labelName.' | Wanaka/Queenstown Scenic Adventures';
+            break;
+        case 'songMaster' :
+            $title = 'Songs | '.$labelName.' | Wanaka/Queenstown Scenic Adventures';
+            break;
+        case 'songDaster' :
+            $title = 'Song | '.$labelName.' | Wanaka/Queenstown Scenic Adventures';
+            break;
+        case 'mixMaster' :
+            $title = 'Mixes | '.$labelName.' | Wanaka/Queenstown Scenic Adventures';
+            break;
+        case 'mixDetail' :
+            $title = 'Mix | '.$labelName.' | Wanaka/Queenstown Scenic Adventures';
+            break;
+        case 'addEditSong' :
+            $title = 'Add/Edit Song | '.$labelName.' | Wanaka/Queenstown Scenic Adventures';
+            break; 
+        case 'addEditAlbum' :
+            $title = 'Add/Edit Album | '.$labelName.' | Wanaka/Queenstown Scenic Adventures';
+            break; 
+        case 'addEditMix' :
+            $title = 'Add/Edit Mix | '.$labelName.' | Wanaka/Queenstown Scenic Adventures';
+            break; 
+    }
+}else{
+    $title = 'Home | Label Market | Create your own Record Label to promote the Music you love';
+}
+
+
 
 if (array_key_exists('username', $_SESSION)) {
     $admin = $adminDao->findByUsername($_SESSION['username']);

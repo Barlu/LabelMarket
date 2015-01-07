@@ -37,11 +37,16 @@
                     </div>';
         }
     } else {
+        if(array_key_exists('username', $_SESSION)){
         echo '<p>Leave a comment...</p>';
+        } else {
+            echo '<p>Sign in to leave a comment...</p>';
+        }
     }
-    ?>
+    if(array_key_exists('username', $_SESSION)){?>
     <form action="index.php?page=songDetail&songId=<?php echo $song->getId(); ?>" method="post">
         <input type="text" name="comment"/><input type="submit" name="submit" value="Send"/>
     </form>
+    <?php }?>
 </div>
 
