@@ -14,10 +14,7 @@ and open the template in the editor.
         background-repeat: no-repeat;
               background-color: black;
     }
-    
-    .error {
-        color: red;
-    }
+
 
     #wrapper {
         max-width: 980px;
@@ -166,10 +163,7 @@ and open the template in the editor.
         margin: 30px;
     }
 
-    .inputWrap {
-        width: 350px;
-        margin: auto;
-    }
+   
     /*----------------------------------------NAVIGATION*/
 
     #navBackground {
@@ -439,21 +433,21 @@ and open the template in the editor.
     }
 
     /*---------------------------------------------FORMS*/
-    legend {
-        font-family: 'Ubuntu', sans-serif;
-        font-size: 2em;
-        padding: 10px;
-        text-align: left;
-    }
+.has-feedback .form-control-feedback {
+    right: 15px;  
+}
 
-    form input, form label, form select, form textarea {
-        margin: 8px;
-    }
-    fieldset {
-        text-align: center;
-        font-family: 'Roboto', sans-serif;
-    }
+div.tooltip-inner {
+    padding: 8px;
+    font-size: 1.3em;
+    max-width: 350px;
 
+
+}
+
+div.tooltip-arrow {
+
+}
     /*---------------------------------------------FOOTER*/
     .footer {
         height: 200px;

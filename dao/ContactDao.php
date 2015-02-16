@@ -11,6 +11,9 @@
  *
  * @author emmett.newman
  */
+
+include_once '../dao/Dao.php';
+
 class ContactDao extends Dao {
     
     public function insert(Contact $contact) {
@@ -67,6 +70,19 @@ class ContactDao extends Dao {
         $sql = 'SELECT * FROM contact WHERE userId = :id';
         $statement = $this->getDb()->prepare($sql);
         $this->executeStatement($statement, array(':id' => $id));
+        $row = $statement->fetch();
+        if (!$row) {
+            return null;
+        }
+        $contact = new Contact();
+        Mapper::mapContact($contact, $row);
+        return $contact;
+    }
+    
+    public function findByEmail($email) {
+        $sql = 'SELECT * FROM contact WHERE email = :email';
+        $statement = $this->getDb()->prepare($sql);
+        $this->executeStatement($statement, array(':email' => $email));
         $row = $statement->fetch();
         if (!$row) {
             return null;

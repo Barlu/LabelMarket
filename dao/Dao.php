@@ -11,6 +11,9 @@
  *
  * @author emmett.newman
  */
+
+include_once '../config/Config.php';
+
 class Dao {
 
     private $db = null;

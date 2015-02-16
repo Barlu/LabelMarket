@@ -132,15 +132,7 @@ function validateRegistration() {
 }
 
 function checkEmail(id) {
-    var regex = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    var email = getEle(id).value;
-    var errorId = getEle(id + 'Error');
-    if (regex.test(email)) {
-        errorId.innerHTML = '';
-        return true;
-    }
-    errorId.innerHTML = '<p class="error"> * Please enter a valid email</p>';
-    return false;
+
 }
 
 function dropdownIsValid(id) {
@@ -289,4 +281,5 @@ function checkDate(id, input) {
     }
     return true;
 }
+
 

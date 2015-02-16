@@ -11,6 +11,9 @@
  *
  * @author emmett.newman
  */
+
+include_once '../dao/Dao.php';
+
 class UserDao extends Dao {
     
     public function insert(User $user) {
